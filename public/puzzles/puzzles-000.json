@@ -1,0 +1,205 @@
+[
+  {
+    "id": "00sHx",
+    "fen": "r1bqkb1r/pppp1ppp/2n2n2/4p2Q/2B1P3/8/PPPP1PPP/RNB1K1NR w KQkq - 4 4",
+    "moves": ["h5f7"],
+    "rating": 500,
+    "themes": ["mateIn1", "short", "scholars-mate"]
+  },
+  {
+    "id": "00sHy",
+    "fen": "rnbqkbnr/pppp1ppp/8/4p3/6P1/5P2/PPPPP2P/RNBQKBNR b KQkq - 0 2",
+    "moves": ["d8h4"],
+    "rating": 450,
+    "themes": ["mateIn1", "checkmate", "fool-mate"]
+  },
+  {
+    "id": "00sHz",
+    "fen": "6k1/5ppp/8/8/8/8/5PPP/4R1K1 w - - 0 1",
+    "moves": ["e1e8"],
+    "rating": 400,
+    "themes": ["mateIn1", "backRankMate", "endgame"]
+  },
+  {
+    "id": "00sI0",
+    "fen": "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5Q2/PPPP1PPP/RNB1K1NR w KQkq - 4 4",
+    "moves": ["f3f7"],
+    "rating": 550,
+    "themes": ["mateIn1", "short"]
+  },
+  {
+    "id": "00sI1",
+    "fen": "r2qk2r/ppp2ppp/2n1bn2/3pp3/2B1P1b1/3P1N2/PPPN1PPP/R1BQK2R w KQkq - 4 7",
+    "moves": ["c4f7", "e8f7", "f3g5"],
+    "rating": 750,
+    "themes": ["fork", "middlegame", "advantage"]
+  },
+  {
+    "id": "00sI2",
+    "fen": "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3",
+    "moves": ["g8f6", "f3g5", "d7d5"],
+    "rating": 600,
+    "themes": ["opening", "development"]
+  },
+  {
+    "id": "00sI3",
+    "fen": "r1b1k2r/ppppqppp/2n2n2/2b1p3/2B1P3/3P1N2/PPP2PPP/RNBQK2R w KQkq - 4 5",
+    "moves": ["c1g5", "f6e4", "g5e7"],
+    "rating": 800,
+    "themes": ["pin", "middlegame", "advantage"]
+  },
+  {
+    "id": "00sI4",
+    "fen": "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQ1RK1 b kq - 5 5",
+    "moves": ["f6g4", "h2h3", "g4f2", "f1f2", "c5f2"],
+    "rating": 900,
+    "themes": ["fork", "sacrifice", "advantage"]
+  },
+  {
+    "id": "00sI5",
+    "fen": "r1bqkb1r/1ppp1ppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 5",
+    "moves": ["a4c6", "d7c6"],
+    "rating": 650,
+    "themes": ["advantage", "exchange"]
+  },
+  {
+    "id": "00sI6",
+    "fen": "r2qr1k1/ppp2ppp/2np1n2/2b1p1B1/2B1P1b1/2NP1N2/PPP2PPP/R2QR1K1 w - - 6 9",
+    "moves": ["g5f6", "d8f6", "f3d5"],
+    "rating": 850,
+    "themes": ["fork", "hangingPiece"]
+  },
+  {
+    "id": "00sI7",
+    "fen": "r3k2r/pppq1ppp/2n1bn2/3pp3/2B1P3/2NP1N2/PPP2PPP/R1BQK2R w KQkq - 2 8",
+    "moves": ["c4d5", "e6d5", "e4d5"],
+    "rating": 700,
+    "themes": ["opening", "center"]
+  },
+  {
+    "id": "00sI8",
+    "fen": "5rk1/pp3ppp/2p2n2/3p4/3P4/2P2N2/PP3PPP/4R1K1 w - - 0 18",
+    "moves": ["e1e8"],
+    "rating": 500,
+    "themes": ["backRankMate", "mateIn1", "endgame"]
+  },
+  {
+    "id": "00sI9",
+    "fen": "r1bq1rk1/pppp1ppp/2n2n2/2b1p3/2B1P3/3P1N2/PPP2PPP/RNBQ1RK1 w - - 4 6",
+    "moves": ["c1g5", "h7h6", "g5h4"],
+    "rating": 750,
+    "themes": ["pin", "development"]
+  },
+  {
+    "id": "00sIA",
+    "fen": "r2qkbnr/ppp2ppp/2np4/4N3/2B1P1b1/8/PPPP1PPP/RNBQK2R w KQkq - 2 5",
+    "moves": ["c4f7", "e8e7", "e5d7"],
+    "rating": 900,
+    "themes": ["fork", "middlegame", "advantage"]
+  },
+  {
+    "id": "00sIB",
+    "fen": "r1bqk2r/pppp1ppp/2n2n2/2b1p3/4P3/2N2N2/PPPP1PPP/R1BQKB1R w KQkq - 4 4",
+    "moves": ["f3e5", "c6e5", "d2d4"],
+    "rating": 650,
+    "themes": ["opening", "center", "twoKnightsDefense"]
+  },
+  {
+    "id": "00sIC",
+    "fen": "r1b1k2r/pppp1ppp/2n2n2/2b1p2q/2B1P3/3P1N2/PPP2PPP/RNBQ1RK1 b kq - 1 6",
+    "moves": ["h5h2", "g1h2", "f6g4", "h2g3", "c5f2"],
+    "rating": 950,
+    "themes": ["sacrifice", "attack", "mateIn2"]
+  },
+  {
+    "id": "00sID",
+    "fen": "3rr1k1/ppp2ppp/2n5/3p4/3P1B2/2P2N2/PP3PPP/R4RK1 b - - 0 14",
+    "moves": ["e8e1", "f1e1", "d8e8"],
+    "rating": 700,
+    "themes": ["backRankMate", "sacrifice"]
+  },
+  {
+    "id": "00sIE",
+    "fen": "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4",
+    "moves": ["f3g5", "d7d5", "e4d5", "f6d5"],
+    "rating": 800,
+    "themes": ["friedLiver", "opening", "attack"]
+  },
+  {
+    "id": "00sIF",
+    "fen": "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3",
+    "moves": ["f1b5", "a7a6", "b5c6", "d7c6"],
+    "rating": 600,
+    "themes": ["opening", "ruyLopez", "exchange"]
+  },
+  {
+    "id": "00sIG",
+    "fen": "5rk1/ppp2ppp/8/3pP3/3P4/8/PPP2PPP/4RRK1 w - - 0 16",
+    "moves": ["e1e8", "f8e8", "f1f8"],
+    "rating": 750,
+    "themes": ["backRankMate", "mateIn2", "endgame"]
+  },
+  {
+    "id": "00sIH",
+    "fen": "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 4 5",
+    "moves": ["e1g1", "e8g8", "d2d3"],
+    "rating": 550,
+    "themes": ["opening", "castling", "italianGame"]
+  },
+  {
+    "id": "00sII",
+    "fen": "r2qr1k1/ppp2ppp/2n1bn2/3p2B1/3P4/2NBPN2/PP3PPP/R2QR1K1 b - - 1 11",
+    "moves": ["f6e4", "g5d8", "e4c3"],
+    "rating": 850,
+    "themes": ["fork", "removeTheDefender"]
+  },
+  {
+    "id": "00sIJ",
+    "fen": "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4",
+    "moves": ["d2d3", "f8c5", "c2c3"],
+    "rating": 500,
+    "themes": ["opening", "italianGame", "development"]
+  },
+  {
+    "id": "00sIK",
+    "fen": "r1bqkb1r/ppp2ppp/2np1n2/4p3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 0 5",
+    "moves": ["f3g5", "d7d5", "e4d5", "c6a5"],
+    "rating": 750,
+    "themes": ["traxlerCounterattack", "opening", "attack"]
+  },
+  {
+    "id": "00sIL",
+    "fen": "6k1/5ppp/p7/1p6/8/1P4PP/P4PK1/3r4 b - - 0 30",
+    "moves": ["d1d2", "g2f3", "d2f2", "f3e4", "f2a2"],
+    "rating": 800,
+    "themes": ["endgame", "rook", "advantage"]
+  },
+  {
+    "id": "00sIM",
+    "fen": "r1bqk2r/ppppbppp/2n2n2/4p3/2B1P3/3P1N2/PPP2PPP/RNBQK2R w KQkq - 4 5",
+    "moves": ["e1g1", "e8g8", "b1c3"],
+    "rating": 550,
+    "themes": ["opening", "italianGame", "castling"]
+  },
+  {
+    "id": "00sIN",
+    "fen": "r2q1rk1/ppp1bppp/2n1bn2/3pp3/4P3/1NN1BP2/PPPP2PP/R2QKB1R w KQ - 0 8",
+    "moves": ["e4d5", "e6d5", "c3d5"],
+    "rating": 700,
+    "themes": ["opening", "center", "advantage"]
+  },
+  {
+    "id": "00sIO",
+    "fen": "r1bqkb1r/pppp1ppp/2n5/4p2n/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4",
+    "moves": ["d2d4", "e5d4", "e1g1"],
+    "rating": 650,
+    "themes": ["opening", "maxLangueSystem", "gambit"]
+  },
+  {
+    "id": "00sIP",
+    "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2",
+    "moves": ["b8c6", "f1b5", "a7a6"],
+    "rating": 500,
+    "themes": ["opening", "ruyLopez", "development"]
+  }
+]

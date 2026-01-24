@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+/* Wood & Felt Chess Aesthetic */
+:root {
+  /* Warm cream/parchment base */
+  --background: 35 25% 95%;
+  --foreground: 20 25% 15%;
+  --card: 35 20% 98%;
+  --card-foreground: 20 25% 15%;
+  --popover: 35 20% 98%;
+  --popover-foreground: 20 25% 15%;
+
+  /* Forest green (felt) as primary */
+  --primary: 145 40% 32%;
+  --primary-foreground: 0 0% 100%;
+
+  /* Wood tones for secondary elements */
+  --secondary: 30 20% 90%;
+  --secondary-foreground: 20 25% 20%;
+  --muted: 30 15% 92%;
+  --muted-foreground: 20 12% 40%;
+
+  /* Green-tinted accent */
+  --accent: 145 25% 94%;
+  --accent-foreground: 145 40% 25%;
+
+  --destructive: 0 65% 50%;
+  --destructive-foreground: 0 0% 100%;
+
+  /* Warm wood-toned borders */
+  --border: 30 18% 82%;
+  --input: 30 18% 82%;
+  --ring: 145 40% 32%;
+  --radius: 0.25rem;
+
+  /* Chess-specific colors */
+  --success: 145 45% 35%;
+  --success-foreground: 0 0% 100%;
+  --warning: 35 85% 50%;
+  --warning-foreground: 35 90% 10%;
+}
+
+.dark {
+  /* Deep walnut/mahogany base */
+  --background: 20 30% 7%;
+  --foreground: 35 15% 88%;
+  --card: 20 25% 11%;
+  --card-foreground: 35 15% 88%;
+  --popover: 20 25% 11%;
+  --popover-foreground: 35 15% 88%;
+
+  /* Brighter green for dark mode */
+  --primary: 145 45% 42%;
+  --primary-foreground: 20 30% 7%;
+
+  /* Lighter walnut tones */
+  --secondary: 20 20% 15%;
+  --secondary-foreground: 35 15% 85%;
+  --muted: 20 18% 14%;
+  --muted-foreground: 35 12% 55%;
+
+  /* Dark green-tinted accent */
+  --accent: 145 20% 15%;
+  --accent-foreground: 145 45% 60%;
+
+  --destructive: 0 60% 42%;
+  --destructive-foreground: 35 15% 90%;
+
+  /* Subtle warm borders */
+  --border: 20 15% 18%;
+  --input: 20 15% 18%;
+  --ring: 145 45% 42%;
+
+  /* Chess-specific colors */
+  --success: 145 45% 40%;
+  --success-foreground: 145 45% 95%;
+  --warning: 35 80% 55%;
+  --warning-foreground: 35 90% 10%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  margin: 0;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Elegant serif font for headings */
+h1, h2, h3, .font-display {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+/* Chess piece unicode font support */
+.chess-icon {
+  font-family: 'Noto Sans Symbols 2', 'Segoe UI Symbol', 'Apple Symbols', sans-serif;
+}
+
+/* Subtle card shadow */
+.card-shadow {
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px -1px rgb(0 0 0 / 0.04);
+}
+
+.card-shadow:hover {
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.06), 0 2px 4px -2px rgb(0 0 0 / 0.06);
+}

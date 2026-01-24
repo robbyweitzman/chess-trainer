@@ -1,0 +1,9 @@
+{
+  "totalPuzzles": 30,
+  "chunks": 1,
+  "chunkSize": 1000,
+  "ratingRange": { "min": 400, "max": 1000 },
+  "themes": ["mateIn1", "mateIn2", "fork", "pin", "hangingPiece", "backRankMate", "opening"],
+  "createdAt": "2025-01-01T00:00:00.000Z",
+  "note": "Sample puzzles for development. Download the full Lichess database and run scripts/process-puzzles.ts for more puzzles."
+}
