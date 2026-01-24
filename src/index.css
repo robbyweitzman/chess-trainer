@@ -11,7 +11,7 @@
   --popover-foreground: 20 25% 15%;
 
   /* Forest green (felt) as primary */
-  --primary: 145 40% 32%;
+  --primary: 152 55% 28%;
   --primary-foreground: 0 0% 100%;
 
   /* Wood tones for secondary elements */
@@ -21,8 +21,8 @@
   --muted-foreground: 20 12% 40%;
 
   /* Green-tinted accent */
-  --accent: 145 25% 94%;
-  --accent-foreground: 145 40% 25%;
+  --accent: 152 20% 94%;
+  --accent-foreground: 152 55% 22%;
 
   --destructive: 0 65% 50%;
   --destructive-foreground: 0 0% 100%;
@@ -30,11 +30,11 @@
   /* Warm wood-toned borders */
   --border: 30 18% 82%;
   --input: 30 18% 82%;
-  --ring: 145 40% 32%;
+  --ring: 152 55% 28%;
   --radius: 0.25rem;
 
   /* Chess-specific colors */
-  --success: 145 45% 35%;
+  --success: 152 50% 35%;
   --success-foreground: 0 0% 100%;
   --warning: 35 85% 50%;
   --warning-foreground: 35 90% 10%;
@@ -50,7 +50,7 @@
   --popover-foreground: 35 15% 88%;
 
   /* Brighter green for dark mode */
-  --primary: 145 45% 42%;
+  --primary: 152 50% 45%;
   --primary-foreground: 20 30% 7%;
 
   /* Lighter walnut tones */
@@ -60,8 +60,8 @@
   --muted-foreground: 35 12% 55%;
 
   /* Dark green-tinted accent */
-  --accent: 145 20% 15%;
-  --accent-foreground: 145 45% 60%;
+  --accent: 152 20% 15%;
+  --accent-foreground: 152 50% 60%;
 
   --destructive: 0 60% 42%;
   --destructive-foreground: 35 15% 90%;
@@ -69,10 +69,10 @@
   /* Subtle warm borders */
   --border: 20 15% 18%;
   --input: 20 15% 18%;
-  --ring: 145 45% 42%;
+  --ring: 152 50% 45%;
 
   /* Chess-specific colors */
-  --success: 145 45% 40%;
+  --success: 152 50% 42%;
   --success-foreground: 145 45% 95%;
   --warning: 35 80% 55%;
   --warning-foreground: 35 90% 10%;
@@ -99,7 +99,7 @@ body {
 
 /* Elegant serif font for headings */
 h1, h2, h3, .font-display {
-  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-family: 'Lusitana', Georgia, serif;
   letter-spacing: -0.02em;
   line-height: 1.2;
 }
@@ -116,4 +116,28 @@ h1, h2, h3, .font-display {
 
 .card-shadow:hover {
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.06), 0 2px 4px -2px rgb(0 0 0 / 0.06);
+}
+
+/* Container centering */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
