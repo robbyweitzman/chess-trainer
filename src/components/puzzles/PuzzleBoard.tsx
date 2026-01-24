@@ -69,7 +69,7 @@ export function PuzzleBoard({ puzzle, onComplete, onNext }: PuzzleBoardProps) {
 
         {/* Progress indicator */}
         <div className="w-full max-w-[600px] mt-4 space-y-2">
-          <div className="flex justify-between text-sm text-muted-foreground">
+          <div className="flex justify-between text-sm card-text-muted">
             <span>
               Move {Math.max(0, puzzleState.currentMoveIndex - 1)}/
               {puzzleState.totalMoves - 1}
@@ -117,7 +117,7 @@ export function PuzzleBoard({ puzzle, onComplete, onNext }: PuzzleBoardProps) {
 
             {/* Themes */}
             <div className="mb-4">
-              <h4 className="text-sm text-muted-foreground mb-2">Themes</h4>
+              <h4 className="text-sm card-text-muted mb-2">Themes</h4>
               <div className="flex flex-wrap gap-1">
                 {puzzle.themes.map((theme) => (
                   <Badge key={theme} variant="secondary" className="text-xs">
@@ -163,7 +163,7 @@ export function PuzzleBoard({ puzzle, onComplete, onNext }: PuzzleBoardProps) {
 
         {/* Attempts counter */}
         {puzzleState.attempts > 0 && puzzleState.status === 'playing' && (
-          <p className="text-sm text-muted-foreground text-center">
+          <p className="text-sm card-text-muted text-center">
             Attempts: {puzzleState.attempts}/3
           </p>
         )}

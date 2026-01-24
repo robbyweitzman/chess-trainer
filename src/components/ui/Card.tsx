@@ -6,7 +6,7 @@ const Card = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
     <div
       ref={ref}
       className={cn(
-        'card-skeuomorphic text-card-foreground transition-all duration-200',
+        'card-skeuomorphic transition-all duration-200',
         className
       )}
       {...props}
@@ -30,7 +30,7 @@ const CardTitle = forwardRef<HTMLHeadingElement, HTMLAttributes<HTMLHeadingEleme
   ({ className, ...props }, ref) => (
     <h3
       ref={ref}
-      className={cn('text-2xl font-semibold leading-none tracking-tight text-[#333] dark:text-[#E8E0D5]', className)}
+      className={cn('text-2xl font-semibold leading-none tracking-tight card-text-primary', className)}
       {...props}
     />
   )
@@ -43,7 +43,7 @@ const CardDescription = forwardRef<
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}
-    className={cn('text-sm text-[#666] dark:text-[#A89880]', className)}
+    className={cn('text-sm card-text-secondary', className)}
     {...props}
   />
 ));

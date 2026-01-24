@@ -76,7 +76,7 @@ export function OpeningTrainer({ opening }: OpeningTrainerProps) {
 
         {/* Progress bar */}
         <div className="w-full max-w-[600px] mt-4 space-y-2">
-          <div className="flex justify-between text-sm text-muted-foreground">
+          <div className="flex justify-between text-sm card-text-muted">
             <span>
               Move {Math.min(trainer.currentMoveIndex + 1, trainer.totalMoves)}/
               {trainer.totalMoves}
@@ -126,7 +126,7 @@ export function OpeningTrainer({ opening }: OpeningTrainerProps) {
                 <h3 className="text-lg font-semibold mb-2">
                   {trainer.mistakes === 0 ? 'Perfect!' : 'Opening Complete!'}
                 </h3>
-                <p className="text-muted-foreground mb-4">
+                <p className="card-text-secondary mb-4">
                   {trainer.mistakes === 0
                     ? "You've mastered this opening line!"
                     : `Completed with ${trainer.mistakes} mistake${trainer.mistakes > 1 ? 's' : ''}`}
@@ -215,8 +215,8 @@ export function OpeningTrainer({ opening }: OpeningTrainerProps) {
         {/* Key principles */}
         <Card>
           <CardContent className="pt-6">
-            <h3 className="font-display font-medium mb-3">Key Principles</h3>
-            <ul className="space-y-2.5 text-sm text-muted-foreground">
+            <h3 className="font-display font-medium card-text-primary mb-3">Key Principles</h3>
+            <ul className="space-y-2.5 text-sm card-text-secondary">
               {opening.keyPrinciples.map((principle, i) => (
                 <li key={i} className="flex items-start gap-2.5">
                   <span className="text-primary mt-0.5">•</span>

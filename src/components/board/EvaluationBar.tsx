@@ -60,7 +60,7 @@ export function EvaluationBar({
       <span
         className={cn(
           'text-xs mt-1 font-mono',
-          evaluation >= 0 ? 'text-foreground' : 'text-muted-foreground'
+          evaluation >= 0 ? 'card-text-primary' : 'card-text-muted'
         )}
       >
         {displayValue}

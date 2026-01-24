@@ -17,7 +17,7 @@ export function OpeningsPage() {
     if (!opening) {
       return (
         <div className="text-center py-12">
-          <h2 className="text-xl font-semibold mb-4">Opening not found</h2>
+          <h2 className="text-xl font-semibold mb-4 wood-text-primary">Opening not found</h2>
           <Link to="/openings">
             <Button>Back to Openings</Button>
           </Link>
@@ -34,11 +34,11 @@ export function OpeningsPage() {
             </Button>
           </Link>
           <div>
-            <h1 className="text-2xl font-display font-semibold">{opening.name}</h1>
-            <p className="text-muted-foreground flex items-center gap-1.5 text-sm">
+            <h1 className="text-2xl font-display font-semibold wood-text-primary">{opening.name}</h1>
+            <p className="wood-text-secondary flex items-center gap-1.5 text-sm">
               <Crown className="h-3 w-3" />
               {opening.color === 'white' ? 'White' : 'Black'}
-              {opening.eco && <span className="text-muted-foreground/70">· {opening.eco}</span>}
+              {opening.eco && <span className="opacity-70">· {opening.eco}</span>}
             </p>
           </div>
         </div>
@@ -51,17 +51,16 @@ export function OpeningsPage() {
   // Show opening selection
   return (
     <div className="space-y-10">
-      <div className="text-center py-2">
-        <h1 className="text-3xl font-display font-semibold mb-2">Opening Trainer</h1>
-        <p className="text-muted-foreground">
+      <div className="felt-banner stitched stitched-top rounded-xl text-center py-6 -mx-4 sm:-mx-6 lg:-mx-8">
+        <h1 className="text-3xl font-display font-semibold mb-2 text-white text-embossed relative z-10">Opening Trainer</h1>
+        <p className="text-white/80 relative z-10">
           Learn and practice essential chess openings for beginners
         </p>
       </div>
 
       {/* White openings */}
       <section>
-        <h2 className="text-lg font-display font-semibold mb-4 flex items-center gap-3">
-          <div className="w-5 h-5 rounded bg-white border shadow-sm" />
+        <h2 className="chevron-title text-lg font-display mb-4">
           Openings for White
         </h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -77,8 +76,7 @@ export function OpeningsPage() {
 
       {/* Black openings */}
       <section>
-        <h2 className="text-lg font-display font-semibold mb-4 flex items-center gap-3">
-          <div className="w-5 h-5 rounded bg-zinc-800 shadow-sm" />
+        <h2 className="chevron-title text-lg font-display mb-4">
           Openings for Black
         </h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -93,8 +91,8 @@ export function OpeningsPage() {
       </section>
 
       {/* All openings summary */}
-      <section className="pt-6 border-t">
-        <p className="text-sm text-muted-foreground text-center">
+      <section className="pt-6 border-t border-white/20">
+        <p className="text-sm wood-text-secondary text-center">
           {openings.length} openings available · {Object.keys(progress.openingProgress).length} started · {Object.values(progress.openingProgress).filter((p) => p.box === 4).length} mastered
         </p>
       </section>

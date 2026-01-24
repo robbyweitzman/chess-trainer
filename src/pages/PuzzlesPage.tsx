@@ -74,7 +74,7 @@ export function PuzzlesPage() {
       <div className="flex items-center justify-center h-64">
         <div className="text-center">
           <div className="animate-spin h-8 w-8 border-4 border-primary border-t-transparent rounded-full mx-auto mb-4" />
-          <p className="text-muted-foreground">Loading puzzles...</p>
+          <p className="wood-text-secondary">Loading puzzles...</p>
         </div>
       </div>
     );
@@ -83,17 +83,19 @@ export function PuzzlesPage() {
   return (
     <div className="space-y-8">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <div>
-          <h1 className="text-3xl font-display font-semibold mb-2">Tactics Trainer</h1>
-          <p className="text-muted-foreground">
-            Solve puzzles to improve your pattern recognition
-          </p>
+      <div className="felt-banner stitched stitched-top rounded-xl py-6 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 relative z-10">
+          <div>
+            <h1 className="text-3xl font-display font-semibold mb-2 text-white text-embossed">Tactics Trainer</h1>
+            <p className="text-white/80">
+              Solve puzzles to improve your pattern recognition
+            </p>
+          </div>
+          <Button variant="outline" onClick={shufflePuzzles}>
+            <RefreshCw className="h-4 w-4 mr-2" />
+            Shuffle
+          </Button>
         </div>
-        <Button variant="outline" onClick={shufflePuzzles}>
-          <RefreshCw className="h-4 w-4 mr-2" />
-          Shuffle
-        </Button>
       </div>
 
       {/* Stats bar */}
@@ -101,10 +103,10 @@ export function PuzzlesPage() {
         <Card>
           <CardContent className="pt-4 pb-4">
             <div className="flex items-center gap-3">
-              <Target className="h-6 w-6 text-primary" />
+              <Target className="h-6 w-6 text-[var(--felt-green)] dark:text-[var(--felt-highlight)]" />
               <div>
-                <p className="text-2xl font-display font-semibold">{progress.puzzleRating}</p>
-                <p className="text-xs text-muted-foreground">Rating</p>
+                <p className="text-2xl font-display font-semibold card-text-primary">{progress.puzzleRating}</p>
+                <p className="text-xs card-text-muted">Rating</p>
               </div>
             </div>
           </CardContent>
@@ -115,8 +117,8 @@ export function PuzzlesPage() {
             <div className="flex items-center gap-3">
               <Award className="h-6 w-6 text-amber-500" />
               <div>
-                <p className="text-2xl font-display font-semibold">{sessionStats.correct}</p>
-                <p className="text-xs text-muted-foreground">Correct Today</p>
+                <p className="text-2xl font-display font-semibold card-text-primary">{sessionStats.correct}</p>
+                <p className="text-xs card-text-muted">Correct Today</p>
               </div>
             </div>
           </CardContent>
@@ -127,8 +129,8 @@ export function PuzzlesPage() {
             <div className="flex items-center gap-3">
               <Flame className="h-6 w-6 text-orange-500" />
               <div>
-                <p className="text-2xl font-display font-semibold">{progress.streaks.current}</p>
-                <p className="text-xs text-muted-foreground">Day Streak</p>
+                <p className="text-2xl font-display font-semibold card-text-primary">{progress.streaks.current}</p>
+                <p className="text-xs card-text-muted">Day Streak</p>
               </div>
             </div>
           </CardContent>
@@ -138,13 +140,13 @@ export function PuzzlesPage() {
           <CardContent className="pt-4 pb-4">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-2xl font-display font-semibold">
+                <p className="text-2xl font-display font-semibold card-text-primary">
                   {sessionStats.total > 0
                     ? Math.round((sessionStats.correct / sessionStats.total) * 100)
                     : 0}
                   %
                 </p>
-                <p className="text-xs text-muted-foreground">Session Accuracy</p>
+                <p className="text-xs card-text-muted">Session Accuracy</p>
               </div>
               <Badge variant="outline">
                 {sessionStats.correct}/{sessionStats.total}
@@ -164,7 +166,7 @@ export function PuzzlesPage() {
       ) : (
         <Card>
           <CardContent className="py-12 text-center">
-            <p className="text-muted-foreground">No puzzles available.</p>
+            <p className="card-text-secondary">No puzzles available.</p>
           </CardContent>
         </Card>
       )}

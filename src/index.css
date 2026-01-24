@@ -308,6 +308,47 @@ h1, h2, h3, .font-display {
   );
 }
 
+/* Card text colors - light mode: dark text on light cards */
+.card-text-primary {
+  color: #2A2520;
+}
+.card-text-secondary {
+  color: #5A5550;
+}
+.card-text-muted {
+  color: #7A756F;
+}
+
+/* Card text colors - dark mode: light text on dark cards */
+.dark .card-text-primary {
+  color: #F0E8E0;
+}
+.dark .card-text-secondary {
+  color: #C0B8B0;
+}
+.dark .card-text-muted {
+  color: #9A928A;
+}
+
+/* Input placeholder colors */
+.input-skeuomorphic::placeholder {
+  color: #7A756F;
+}
+
+.dark .input-skeuomorphic::placeholder {
+  color: #9A928A;
+}
+
+/* Text on wood backgrounds - needs to be visible on brown wood */
+.wood-text-primary {
+  color: #F5F0E8;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+.wood-text-secondary {
+  color: #D8D0C8;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
+
 /* ========================================
    Glossy Buttons
    ======================================== */

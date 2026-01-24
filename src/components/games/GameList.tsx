@@ -20,7 +20,7 @@ export function GameList({
 }: GameListProps) {
   if (games.length === 0) {
     return (
-      <div className="text-center py-8 text-muted-foreground">
+      <div className="text-center py-8 card-text-secondary">
         No games found. Import games from Chess.com to get started.
       </div>
     );
@@ -63,12 +63,12 @@ export function GameList({
 
                   <div>
                     <div className="flex items-center gap-2">
-                      <span className="font-medium">{opponent.username}</span>
-                      <span className="text-sm text-muted-foreground">
+                      <span className="font-medium card-text-primary">{opponent.username}</span>
+                      <span className="text-sm card-text-muted">
                         ({opponent.rating})
                       </span>
                     </div>
-                    <div className="flex items-center gap-3 text-xs text-muted-foreground">
+                    <div className="flex items-center gap-3 text-xs card-text-muted">
                       <span className="flex items-center gap-1">
                         <Timer className="h-3 w-3" />
                         {formatTimeControl(game.time_control)}
@@ -96,7 +96,7 @@ export function GameList({
                     ) : null}
                     {result.charAt(0).toUpperCase() + result.slice(1)}
                   </Badge>
-                  <span className="text-xs text-muted-foreground">
+                  <span className="text-xs card-text-muted">
                     {playerRating}
                   </span>
                 </div>

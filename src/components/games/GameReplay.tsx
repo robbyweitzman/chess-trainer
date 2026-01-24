@@ -165,8 +165,8 @@ export function GameReplay({ game, username }: GameReplayProps) {
               <Badge variant="outline">{game.black.rating}</Badge>
             </div>
             <div className="pt-2 border-t">
-              <p className="text-sm text-muted-foreground">Opening</p>
-              <p className="text-sm font-medium capitalize">{openingName}</p>
+              <p className="text-sm card-text-muted">Opening</p>
+              <p className="text-sm font-medium card-text-primary capitalize">{openingName}</p>
             </div>
           </CardContent>
         </Card>

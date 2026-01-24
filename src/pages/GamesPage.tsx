@@ -40,7 +40,7 @@ export function GamesPage() {
       <div className="flex items-center justify-center h-64">
         <div className="text-center">
           <div className="animate-spin h-8 w-8 border-4 border-primary border-t-transparent rounded-full mx-auto mb-4" />
-          <p className="text-muted-foreground">Loading games...</p>
+          <p className="wood-text-secondary">Loading games...</p>
         </div>
       </div>
     );
@@ -49,9 +49,9 @@ export function GamesPage() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div>
-        <h1 className="text-3xl font-display font-semibold mb-2">Game Analysis</h1>
-        <p className="text-muted-foreground">
+      <div className="felt-banner stitched stitched-top rounded-xl py-6 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8">
+        <h1 className="text-3xl font-display font-semibold mb-2 text-white text-embossed relative z-10">Game Analysis</h1>
+        <p className="text-white/80 relative z-10">
           Import and review your Chess.com games to learn from your play
         </p>
       </div>
@@ -64,7 +64,7 @@ export function GamesPage() {
         <div className="grid lg:grid-cols-[350px,1fr] gap-6">
           {/* Game list */}
           <div>
-            <h2 className="text-lg font-semibold mb-3">Recent Games</h2>
+            <h2 className="text-lg font-semibold mb-3 wood-text-primary">Recent Games</h2>
             <GameList
               games={games}
               username={settings.chessComUsername}
@@ -83,7 +83,7 @@ export function GamesPage() {
             ) : (
               <Card>
                 <CardContent className="py-12 text-center">
-                  <p className="text-muted-foreground">
+                  <p className="card-text-secondary">
                     Select a game from the list to view and analyze it.
                   </p>
                 </CardContent>
@@ -94,7 +94,7 @@ export function GamesPage() {
       ) : (
         <Card>
           <CardContent className="py-12 text-center">
-            <p className="text-muted-foreground">
+            <p className="card-text-secondary">
               No games imported yet. Enter your Chess.com username above to get started.
             </p>
           </CardContent>

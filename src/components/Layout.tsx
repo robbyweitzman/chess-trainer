@@ -75,14 +75,6 @@ export function Layout({ children }: LayoutProps) {
 
       {/* Main content */}
       <main className="flex-1 container py-8">{children}</main>
-
-      {/* Footer - Wood Tab Bar Style */}
-      <footer className="tab-bar py-4 mt-auto">
-        <div className="container flex items-center justify-center gap-3 text-sm">
-          <span className="chess-icon text-[var(--gold)] text-lg icon-glow">&#9822;</span>
-          <span className="text-[#E8D5B5] text-shadow">Train your chess skills from 200 to 1000 ELO</span>
-        </div>
-      </footer>
     </div>
   );
 }

@@ -28,19 +28,22 @@ export function SettingsPage() {
   };
 
   return (
-    <div className="space-y-8 max-w-2xl">
-      <div>
-        <h1 className="text-3xl font-display font-semibold mb-2">Settings</h1>
-        <p className="text-muted-foreground">
+    <div className="space-y-8">
+      {/* Header */}
+      <div className="felt-banner stitched stitched-top rounded-xl py-6 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8">
+        <h1 className="text-3xl font-display font-semibold mb-2 text-white text-embossed relative z-10">Settings</h1>
+        <p className="text-white/80 relative z-10">
           Customize your chess training experience
         </p>
       </div>
 
+      {/* Settings cards - constrained width */}
+      <div className="max-w-2xl space-y-8">
       {/* Appearance */}
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2 text-lg font-display">
-            <Palette className="h-5 w-5 text-primary" />
+            <Palette className="h-5 w-5 text-[var(--felt-green)] dark:text-[var(--felt-highlight)]" />
             Appearance
           </CardTitle>
           <CardDescription>
@@ -50,7 +53,7 @@ export function SettingsPage() {
         <CardContent className="space-y-6">
           {/* Theme toggle */}
           <div>
-            <label className="text-sm font-medium mb-3 block">Color Mode</label>
+            <label className="text-sm font-medium mb-3 block card-text-primary">Color Mode</label>
             <div className="flex gap-2">
               <Button
                 variant={settings.theme === 'light' ? 'default' : 'outline'}
@@ -81,7 +84,7 @@ export function SettingsPage() {
 
           {/* Board theme */}
           <div>
-            <label className="text-sm font-medium mb-3 block">Board Theme</label>
+            <label className="text-sm font-medium mb-3 block card-text-primary">Board Theme</label>
             <div className="grid grid-cols-4 gap-3">
               {BOARD_THEMES.map((theme) => (
                 <button
@@ -92,8 +95,8 @@ export function SettingsPage() {
                   className={cn(
                     'p-2 rounded-lg border-2 transition-colors',
                     settings.boardTheme === theme.id
-                      ? 'border-primary'
-                      : 'border-transparent hover:border-muted'
+                      ? 'border-[var(--felt-green)] dark:border-[var(--felt-highlight)]'
+                      : 'border-transparent hover:border-gray-300 dark:hover:border-gray-600'
                   )}
                 >
                   <div className="grid grid-cols-2 w-12 h-12 rounded overflow-hidden mx-auto mb-2">
@@ -102,7 +105,7 @@ export function SettingsPage() {
                     <div style={{ backgroundColor: theme.dark }} />
                     <div style={{ backgroundColor: theme.light }} />
                   </div>
-                  <p className="text-xs text-center">{theme.name}</p>
+                  <p className="text-xs text-center card-text-secondary">{theme.name}</p>
                 </button>
               ))}
             </div>
@@ -114,7 +117,7 @@ export function SettingsPage() {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2 text-lg font-display">
-            <Grid3X3 className="h-5 w-5 text-primary" />
+            <Grid3X3 className="h-5 w-5 text-[var(--felt-green)] dark:text-[var(--felt-highlight)]" />
             Board Settings
           </CardTitle>
           <CardDescription>Configure your chess board preferences.</CardDescription>
@@ -122,8 +125,8 @@ export function SettingsPage() {
         <CardContent className="space-y-4">
           <div className="flex items-center justify-between">
             <div>
-              <p className="font-medium">Show Coordinates</p>
-              <p className="text-sm text-muted-foreground">
+              <p className="font-medium card-text-primary">Show Coordinates</p>
+              <p className="text-sm card-text-muted">
                 Display rank and file labels on the board
               </p>
             </div>
@@ -140,8 +143,8 @@ export function SettingsPage() {
 
           <div className="flex items-center justify-between">
             <div>
-              <p className="font-medium">Sound Effects</p>
-              <p className="text-sm text-muted-foreground">
+              <p className="font-medium card-text-primary">Sound Effects</p>
+              <p className="text-sm card-text-muted">
                 Play sounds for moves and captures
               </p>
             </div>
@@ -161,7 +164,7 @@ export function SettingsPage() {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2 text-lg font-display">
-            <RotateCcw className="h-5 w-5 text-primary" />
+            <RotateCcw className="h-5 w-5 text-[var(--felt-green)] dark:text-[var(--felt-highlight)]" />
             Progress Data
           </CardTitle>
           <CardDescription>Manage your training progress data.</CardDescription>
@@ -169,28 +172,28 @@ export function SettingsPage() {
         <CardContent className="space-y-4">
           <div className="grid grid-cols-2 gap-4 text-sm">
             <div>
-              <p className="text-muted-foreground">Puzzle Rating</p>
-              <p className="font-medium">{progress.puzzleRating}</p>
+              <p className="card-text-muted">Puzzle Rating</p>
+              <p className="font-medium card-text-primary">{progress.puzzleRating}</p>
             </div>
             <div>
-              <p className="text-muted-foreground">Puzzles Solved</p>
-              <p className="font-medium">
+              <p className="card-text-muted">Puzzles Solved</p>
+              <p className="font-medium card-text-primary">
                 {Object.keys(progress.puzzleProgress).length}
               </p>
             </div>
             <div>
-              <p className="text-muted-foreground">Openings Started</p>
-              <p className="font-medium">
+              <p className="card-text-muted">Openings Started</p>
+              <p className="font-medium card-text-primary">
                 {Object.keys(progress.openingProgress).length}
               </p>
             </div>
             <div>
-              <p className="text-muted-foreground">Best Streak</p>
-              <p className="font-medium">{progress.streaks.best} days</p>
+              <p className="card-text-muted">Best Streak</p>
+              <p className="font-medium card-text-primary">{progress.streaks.best} days</p>
             </div>
           </div>
 
-          <div className="pt-4 border-t">
+          <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
             <Button variant="destructive" onClick={resetProgress}>
               <RotateCcw className="h-4 w-4 mr-2" />
               Reset All Progress
@@ -198,6 +201,7 @@ export function SettingsPage() {
           </div>
         </CardContent>
       </Card>
+      </div>
     </div>
   );
 }

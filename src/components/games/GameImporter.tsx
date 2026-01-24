@@ -89,7 +89,7 @@ export function GameImporter({ onGamesLoaded }: GameImporterProps) {
           <p className="text-sm text-destructive mt-2">{error}</p>
         )}
 
-        <p className="text-xs text-muted-foreground mt-2">
+        <p className="text-xs card-text-muted mt-2">
           Enter your Chess.com username to import your recent games for analysis.
         </p>
       </CardContent>

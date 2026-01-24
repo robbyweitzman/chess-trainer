@@ -25,11 +25,11 @@ export function MoveHistory({
 
   return (
     <div className="bg-card rounded-lg border p-4 h-64 overflow-y-auto">
-      <h3 className="text-sm font-medium mb-2 text-muted-foreground">Moves</h3>
+      <h3 className="text-sm font-medium mb-2 card-text-muted">Moves</h3>
       <div className="space-y-1">
         {movePairs.map((pair, pairIndex) => (
           <div key={pair.number} className="flex text-sm">
-            <span className="w-8 text-muted-foreground">{pair.number}.</span>
+            <span className="w-8 card-text-muted">{pair.number}.</span>
             {pair.white && (
               <button
                 onClick={() => onMoveClick?.(pairIndex * 2 + 1)}
@@ -55,7 +55,7 @@ export function MoveHistory({
           </div>
         ))}
         {moves.length === 0 && (
-          <p className="text-muted-foreground text-sm">No moves yet</p>
+          <p className="card-text-muted text-sm">No moves yet</p>
         )}
       </div>
     </div>

@@ -30,7 +30,7 @@ export function OpeningCard({ opening, progress }: OpeningCardProps) {
               <CardDescription className="flex items-center gap-1.5 mt-1 text-xs">
                 <Crown className="h-3 w-3" />
                 {opening.color === 'white' ? 'White' : 'Black'}
-                {opening.eco && <span className="text-muted-foreground/70">· {opening.eco}</span>}
+                {opening.eco && <span className="card-text-muted">· {opening.eco}</span>}
               </CardDescription>
             </div>
             {reviewStatus === 'due' && (
@@ -45,26 +45,26 @@ export function OpeningCard({ opening, progress }: OpeningCardProps) {
           </div>
         </CardHeader>
         <CardContent>
-          <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
+          <p className="text-sm card-text-secondary mb-4 line-clamp-2">
             {opening.description}
           </p>
 
           {progress ? (
             <div className="space-y-2">
-              <div className="flex items-center justify-between text-xs text-muted-foreground">
+              <div className="flex items-center justify-between text-xs card-text-muted">
                 <span>Mastery: Box {progress.box}/4</span>
                 {timeUntilReview && reviewStatus !== 'due' && (
                   <span>Review in {timeUntilReview}</span>
                 )}
               </div>
               <Progress value={masteryPercent} />
-              <div className="flex items-center justify-between text-xs text-muted-foreground">
+              <div className="flex items-center justify-between text-xs card-text-muted">
                 <span>{progress.correctCount} correct</span>
                 <span>{progress.incorrectCount} incorrect</span>
               </div>
             </div>
           ) : (
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <div className="flex items-center gap-2 text-sm card-text-muted">
               <BookOpen className="h-4 w-4" />
               <span>Not started</span>
             </div>
