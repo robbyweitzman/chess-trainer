@@ -3,7 +3,6 @@ import {
   BookOpen,
   Puzzle,
   Gamepad2,
-  TrendingUp,
   Flame,
   Target,
   Trophy,
@@ -49,145 +48,146 @@ export function HomePage() {
   }));
 
   return (
-    <div className="space-y-12">
-      {/* Welcome section */}
-      <div className="text-center py-6">
-        <h1 className="text-4xl font-display font-semibold mb-4">
+    <div className="space-y-10">
+      {/* Welcome section - Felt Banner Style */}
+      <div className="felt-banner stitched stitched-top rounded-xl text-center py-8 -mx-4 sm:-mx-6 lg:-mx-8">
+        <h1 className="text-4xl font-display font-semibold mb-3 text-white text-embossed relative z-10">
           Welcome to Chess Trainer
         </h1>
-        <p className="text-muted-foreground text-lg">
+        <p className="text-white/80 text-lg relative z-10">
           Your journey from 200 to 1000 ELO starts here
         </p>
-        <div className="w-16 h-0.5 bg-primary/30 mx-auto mt-6" />
       </div>
 
       {/* Quick stats */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium text-muted-foreground">Puzzle Rating</CardTitle>
-            <Target className="h-5 w-5 text-primary" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-4xl font-display font-semibold">{progress.puzzleRating}</div>
-            <p className="text-sm text-muted-foreground mt-1">
-              {progress.puzzleRating < 1000
-                ? `${1000 - progress.puzzleRating} to goal`
-                : 'Goal reached!'}
-            </p>
-          </CardContent>
-        </Card>
+      <div>
+        <h2 className="chevron-title text-xl font-display mb-5">Your Stats</h2>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between pb-2">
+              <CardTitle className="text-sm font-medium text-[#666] dark:text-[#A89880]">Puzzle Rating</CardTitle>
+              <Target className="h-5 w-5 text-[var(--felt-green)] icon-embossed" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-4xl font-display font-semibold text-[#333] dark:text-[#E8D8C8]">{progress.puzzleRating}</div>
+              <p className="text-sm text-[#888] dark:text-[#9A8A7A] mt-1">
+                {progress.puzzleRating < 1000
+                  ? `${1000 - progress.puzzleRating} to goal`
+                  : 'Goal reached!'}
+              </p>
+            </CardContent>
+          </Card>
 
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium text-muted-foreground">Current Streak</CardTitle>
-            <Flame className="h-5 w-5 text-orange-500" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-4xl font-display font-semibold">{progress.streaks.current}</div>
-            <p className="text-sm text-muted-foreground mt-1">
-              Best: {progress.streaks.best} days
-            </p>
-          </CardContent>
-        </Card>
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between pb-2">
+              <CardTitle className="text-sm font-medium text-[#666] dark:text-[#A89880]">Current Streak</CardTitle>
+              <Flame className="h-5 w-5 text-orange-500 icon-embossed" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-4xl font-display font-semibold text-[#333] dark:text-[#E8D8C8]">{progress.streaks.current}</div>
+              <p className="text-sm text-[#888] dark:text-[#9A8A7A] mt-1">
+                Best: {progress.streaks.best} days
+              </p>
+            </CardContent>
+          </Card>
 
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium text-muted-foreground">Openings</CardTitle>
-            <BookOpen className="h-5 w-5 text-primary" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-4xl font-display font-semibold">
-              {openingsMastered.length}<span className="text-xl text-muted-foreground font-normal">/{openings.length}</span>
-            </div>
-            <p className="text-sm text-muted-foreground mt-1">
-              {openingsDue.length} due for review
-            </p>
-          </CardContent>
-        </Card>
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between pb-2">
+              <CardTitle className="text-sm font-medium text-[#666] dark:text-[#A89880]">Openings</CardTitle>
+              <BookOpen className="h-5 w-5 text-[var(--felt-green)] icon-embossed" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-4xl font-display font-semibold text-[#333] dark:text-[#E8D8C8]">
+                {openingsMastered.length}<span className="text-xl text-[#888] dark:text-[#9A8A7A] font-normal">/{openings.length}</span>
+              </div>
+              <p className="text-sm text-[#888] dark:text-[#9A8A7A] mt-1">
+                {openingsDue.length} due for review
+              </p>
+            </CardContent>
+          </Card>
 
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium text-muted-foreground">Puzzles Solved</CardTitle>
-            <Trophy className="h-5 w-5 text-amber-500" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-4xl font-display font-semibold">
-              {Object.keys(progress.puzzleProgress).length}
-            </div>
-            <p className="text-sm text-muted-foreground mt-1">Total puzzles</p>
-          </CardContent>
-        </Card>
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between pb-2">
+              <CardTitle className="text-sm font-medium text-[#666] dark:text-[#A89880]">Puzzles Solved</CardTitle>
+              <Trophy className="h-5 w-5 text-[var(--gold)] icon-embossed" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-4xl font-display font-semibold text-[#333] dark:text-[#E8D8C8]">
+                {Object.keys(progress.puzzleProgress).length}
+              </div>
+              <p className="text-sm text-[#888] dark:text-[#9A8A7A] mt-1">Total puzzles</p>
+            </CardContent>
+          </Card>
+        </div>
       </div>
 
       {/* Rating chart */}
       {ratingData.length > 1 && (
-        <Card>
-          <CardHeader className="pb-2">
-            <CardTitle className="flex items-center gap-2 text-base font-display">
-              <TrendingUp className="h-5 w-5 text-primary" />
-              Rating Progress
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="h-56">
-              <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={ratingData}>
-                  <XAxis
-                    dataKey="date"
-                    stroke="hsl(var(--muted-foreground))"
-                    fontSize={11}
-                    tickLine={false}
-                    axisLine={false}
-                  />
-                  <YAxis
-                    domain={['dataMin - 50', 'dataMax + 50']}
-                    stroke="hsl(var(--muted-foreground))"
-                    fontSize={11}
-                    tickLine={false}
-                    axisLine={false}
-                    width={40}
-                  />
-                  <Tooltip
-                    contentStyle={{
-                      backgroundColor: 'hsl(var(--card))',
-                      border: '1px solid hsl(var(--border))',
-                      borderRadius: '4px',
-                      boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
-                    }}
-                  />
-                  <Line
-                    type="monotone"
-                    dataKey="rating"
-                    stroke="hsl(var(--primary))"
-                    strokeWidth={2}
-                    dot={{ fill: 'hsl(var(--primary))', strokeWidth: 0, r: 3 }}
-                    activeDot={{ r: 5, strokeWidth: 0 }}
-                  />
-                </LineChart>
-              </ResponsiveContainer>
-            </div>
-          </CardContent>
-        </Card>
+        <div>
+          <h2 className="chevron-title text-xl font-display mb-5">Rating Progress</h2>
+          <Card>
+            <CardContent className="pt-5">
+              <div className="h-56">
+                <ResponsiveContainer width="100%" height="100%">
+                  <LineChart data={ratingData}>
+                    <XAxis
+                      dataKey="date"
+                      stroke="#888"
+                      fontSize={11}
+                      tickLine={false}
+                      axisLine={false}
+                    />
+                    <YAxis
+                      domain={['dataMin - 50', 'dataMax + 50']}
+                      stroke="#888"
+                      fontSize={11}
+                      tickLine={false}
+                      axisLine={false}
+                      width={40}
+                    />
+                    <Tooltip
+                      contentStyle={{
+                        backgroundColor: '#FAFAFA',
+                        border: '1px solid #AAA',
+                        borderRadius: '8px',
+                        boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+                      }}
+                    />
+                    <Line
+                      type="monotone"
+                      dataKey="rating"
+                      stroke="var(--felt-green)"
+                      strokeWidth={3}
+                      dot={{ fill: 'var(--felt-green)', strokeWidth: 0, r: 4 }}
+                      activeDot={{ r: 6, strokeWidth: 0, fill: 'var(--gold)' }}
+                    />
+                  </LineChart>
+                </ResponsiveContainer>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       )}
 
       {/* Training modes */}
       <div>
-        <h2 className="text-xl font-display font-semibold mb-5">Training Modes</h2>
-        <div className="grid sm:grid-cols-3 gap-4">
+        <h2 className="chevron-title text-xl font-display mb-5">Training Modes</h2>
+        <div className="grid sm:grid-cols-3 gap-5">
           <Card className="flex flex-col">
-            <CardContent className="pt-6 flex-1 flex flex-col">
+            <CardContent className="pt-5 flex-1 flex flex-col">
               <div className="mb-4">
-                <BookOpen className="h-7 w-7 text-primary mb-3" />
-                <h3 className="font-display font-semibold text-lg">Opening Trainer</h3>
-                <p className="text-sm text-muted-foreground mt-1">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-b from-[var(--felt-highlight)] to-[var(--felt-dark)] flex items-center justify-center mb-3 shadow-md">
+                  <BookOpen className="h-6 w-6 text-white" />
+                </div>
+                <h3 className="font-display font-semibold text-lg text-[#333] dark:text-[#E8D8C8]">Opening Trainer</h3>
+                <p className="text-sm text-[#666] dark:text-[#A89880] mt-1">
                   Learn and practice essential openings for beginners.
                 </p>
               </div>
               <div className="space-y-2 mb-5 mt-auto">
                 <div className="flex justify-between text-sm">
-                  <span className="text-muted-foreground">Progress</span>
-                  <span className="font-medium">
+                  <span className="text-[#666] dark:text-[#A89880]">Progress</span>
+                  <span className="font-semibold text-[#333] dark:text-[#E8D8C8]">
                     {openingsWithProgress.length}/{openings.length}
                   </span>
                 </div>
@@ -206,18 +206,20 @@ export function HomePage() {
           </Card>
 
           <Card className="flex flex-col">
-            <CardContent className="pt-6 flex-1 flex flex-col">
+            <CardContent className="pt-5 flex-1 flex flex-col">
               <div className="mb-4">
-                <Puzzle className="h-7 w-7 text-primary mb-3" />
-                <h3 className="font-display font-semibold text-lg">Tactics Trainer</h3>
-                <p className="text-sm text-muted-foreground mt-1">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-b from-[var(--felt-highlight)] to-[var(--felt-dark)] flex items-center justify-center mb-3 shadow-md">
+                  <Puzzle className="h-6 w-6 text-white" />
+                </div>
+                <h3 className="font-display font-semibold text-lg text-[#333] dark:text-[#E8D8C8]">Tactics Trainer</h3>
+                <p className="text-sm text-[#666] dark:text-[#A89880] mt-1">
                   Solve puzzles to improve pattern recognition.
                 </p>
               </div>
               <div className="space-y-2 mb-5 mt-auto">
                 <div className="flex justify-between text-sm">
-                  <span className="text-muted-foreground">Current Rating</span>
-                  <span className="font-medium">{progress.puzzleRating}</span>
+                  <span className="text-[#666] dark:text-[#A89880]">Current Rating</span>
+                  <span className="font-semibold text-[#333] dark:text-[#E8D8C8]">{progress.puzzleRating}</span>
                 </div>
                 <Progress value={(progress.puzzleRating / 1000) * 100} max={100} />
               </div>
@@ -228,21 +230,23 @@ export function HomePage() {
           </Card>
 
           <Card className="flex flex-col">
-            <CardContent className="pt-6 flex-1 flex flex-col">
+            <CardContent className="pt-5 flex-1 flex flex-col">
               <div className="mb-4">
-                <Gamepad2 className="h-7 w-7 text-primary mb-3" />
-                <h3 className="font-display font-semibold text-lg">Game Analysis</h3>
-                <p className="text-sm text-muted-foreground mt-1">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-b from-[var(--gold-light)] to-[var(--gold-dark)] flex items-center justify-center mb-3 shadow-md">
+                  <Gamepad2 className="h-6 w-6 text-[#4A3510]" />
+                </div>
+                <h3 className="font-display font-semibold text-lg text-[#333] dark:text-[#E8D8C8]">Game Analysis</h3>
+                <p className="text-sm text-[#666] dark:text-[#A89880] mt-1">
                   Import and review your Chess.com games.
                 </p>
               </div>
               <div className="mb-5 mt-auto">
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-[#666] dark:text-[#A89880]">
                   Learn from your mistakes and find patterns in your play.
                 </p>
               </div>
               <Link to="/games">
-                <Button className="w-full">Import Games</Button>
+                <Button variant="secondary" className="w-full">Import Games</Button>
               </Link>
             </CardContent>
           </Card>

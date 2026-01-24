@@ -18,14 +18,14 @@ const Progress = forwardRef<HTMLDivElement, ProgressProps>(
         aria-valuemax={max}
         aria-valuenow={value}
         className={cn(
-          'relative h-2 w-full overflow-hidden rounded-full bg-secondary',
+          'progress-skeuomorphic relative h-5 w-full overflow-hidden',
           className
         )}
         {...props}
       >
         <div
-          className="h-full w-full flex-1 bg-primary transition-all duration-300 ease-out"
-          style={{ transform: `translateX(-${100 - percentage}%)` }}
+          className="progress-skeuomorphic-fill h-full transition-all duration-300 ease-out"
+          style={{ width: `${percentage}%` }}
         />
       </div>
     );

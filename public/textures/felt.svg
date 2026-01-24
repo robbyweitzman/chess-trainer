@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">
+  <defs>
+    <filter id="felt-noise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" result="noise"/>
+      <feDiffuseLighting in="noise" lighting-color="#2D5A3D" surfaceScale="1.5" result="light">
+        <feDistantLight azimuth="45" elevation="60"/>
+      </feDiffuseLighting>
+      <feBlend in="SourceGraphic" in2="light" mode="multiply"/>
+    </filter>
+    <pattern id="felt" patternUnits="userSpaceOnUse" width="100" height="100">
+      <rect width="100" height="100" fill="#2D6B4A"/>
+      <rect width="100" height="100" fill="#1E5238" opacity="0.3" filter="url(#felt-noise)"/>
+    </pattern>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#felt)"/>
+</svg>

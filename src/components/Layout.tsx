@@ -11,7 +11,6 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useTheme } from '@/hooks/useTheme';
-import { Button } from '@/components/ui/Button';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -33,12 +32,12 @@ export function Layout({ children }: LayoutProps) {
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Header */}
-      <header className="sticky top-0 z-50 w-full border-b bg-card/95 backdrop-blur-sm shadow-sm">
-        <div className="container flex h-14 items-center">
+      {/* Header - Felt Banner Style */}
+      <header className="header-felt sticky top-0 z-50 w-full stitched">
+        <div className="container flex h-14 items-center relative z-10">
           <Link to="/" className="flex items-center gap-2.5 mr-8 group">
-            <span className="text-xl chess-icon text-primary">&#9816;</span>
-            <span className="font-display font-semibold hidden sm:inline-block">
+            <span className="text-2xl chess-icon text-[var(--gold-light)] icon-glow">&#9816;</span>
+            <span className="font-display font-semibold hidden sm:inline-block text-white text-embossed text-lg">
               Chess Trainer
             </span>
           </Link>
@@ -51,39 +50,37 @@ export function Layout({ children }: LayoutProps) {
                   key={item.path}
                   to={item.path}
                   className={cn(
-                    'flex items-center gap-2 px-3 py-1.5 rounded text-sm transition-colors',
+                    'flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm transition-all',
                     isActive
-                      ? 'bg-primary text-primary-foreground font-medium'
-                      : 'text-muted-foreground hover:text-foreground hover:bg-secondary'
+                      ? 'bg-black/20 text-[var(--gold-light)] font-medium shadow-inner'
+                      : 'text-white/80 hover:text-white hover:bg-white/10'
                   )}
                 >
-                  <item.icon className="h-4 w-4" />
+                  <item.icon className={cn('h-4 w-4', isActive && 'icon-glow')} />
                   <span className="hidden md:inline">{item.label}</span>
                 </Link>
               );
             })}
           </nav>
 
-          <Button
-            variant="ghost"
-            size="icon"
+          <button
             onClick={toggleTheme}
             title={`Current theme: ${theme}`}
-            className="text-muted-foreground hover:text-foreground h-8 w-8"
+            className="flex items-center justify-center h-8 w-8 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-colors"
           >
             <ThemeIcon className="h-4 w-4" />
-          </Button>
+          </button>
         </div>
       </header>
 
       {/* Main content */}
-      <main className="flex-1 container py-10">{children}</main>
+      <main className="flex-1 container py-8">{children}</main>
 
-      {/* Footer */}
-      <footer className="border-t py-5 mt-auto bg-card/50">
-        <div className="container flex items-center justify-center gap-2 text-sm text-muted-foreground">
-          <span className="chess-icon text-primary/60">&#9822;</span>
-          <span>Train your chess skills from 200 to 1000 ELO</span>
+      {/* Footer - Wood Tab Bar Style */}
+      <footer className="tab-bar py-4 mt-auto">
+        <div className="container flex items-center justify-center gap-3 text-sm">
+          <span className="chess-icon text-[var(--gold)] text-lg icon-glow">&#9822;</span>
+          <span className="text-[#E8D5B5] text-shadow">Train your chess skills from 200 to 1000 ELO</span>
         </div>
       </footer>
     </div>
