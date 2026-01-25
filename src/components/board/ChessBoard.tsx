@@ -1,6 +1,6 @@
-import { useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import { Chessboard, type ChessboardOptions } from 'react-chessboard';
-import type { Square } from 'chess.js';
+import { Chess, type Square } from 'chess.js';
 import { useAppStore } from '@/store/useAppStore';
 
 const BOARD_THEMES = {
@@ -42,6 +42,62 @@ export function ChessBoard({
   const { settings } = useAppStore();
   const theme = BOARD_THEMES[settings.boardTheme];
 
+  // State for click-to-move
+  const [selectedSquare, setSelectedSquare] = useState<Square | null>(null);
+  const [legalMoves, setLegalMoves] = useState<Square[]>([]);
+
+  // Get legal moves for a piece at a square
+  const getLegalMovesForSquare = useCallback((square: Square, currentFen: string): Square[] => {
+    try {
+      const chess = new Chess(currentFen);
+      const moves = chess.moves({ square, verbose: true });
+      return moves.map(move => move.to as Square);
+    } catch {
+      return [];
+    }
+  }, []);
+
+  // Handle square click for click-to-move
+  const handleSquareClick = useCallback(({ square }: { piece?: unknown; square: string }) => {
+    if (!allowMoves || !onMove) return;
+
+    const clickedSquare = square as Square;
+
+    // If we have a selected square and click on a legal move target
+    if (selectedSquare && legalMoves.includes(clickedSquare)) {
+      // Check if it's a pawn promotion
+      const chess = new Chess(fen);
+      const piece = chess.get(selectedSquare);
+      const isPromotion = piece?.type === 'p' &&
+        ((piece.color === 'w' && clickedSquare[1] === '8') ||
+         (piece.color === 'b' && clickedSquare[1] === '1'));
+
+      onMove(selectedSquare, clickedSquare, isPromotion ? 'q' : undefined);
+      setSelectedSquare(null);
+      setLegalMoves([]);
+      return;
+    }
+
+    // Check if clicked square has a piece we can move
+    try {
+      const chess = new Chess(fen);
+      const piece = chess.get(clickedSquare);
+
+      if (piece && piece.color === chess.turn()) {
+        // Select this piece
+        setSelectedSquare(clickedSquare);
+        setLegalMoves(getLegalMovesForSquare(clickedSquare, fen));
+      } else {
+        // Clicked empty square or opponent piece - deselect
+        setSelectedSquare(null);
+        setLegalMoves([]);
+      }
+    } catch {
+      setSelectedSquare(null);
+      setLegalMoves([]);
+    }
+  }, [allowMoves, onMove, selectedSquare, legalMoves, fen, getLegalMovesForSquare]);
+
   const customSquareStyles = useMemo(() => {
     const styles: Record<string, React.CSSProperties> = {};
 
@@ -64,8 +120,27 @@ export function ChessBoard({
       };
     }
 
+    // Selected square highlight
+    if (selectedSquare) {
+      styles[selectedSquare] = {
+        ...styles[selectedSquare],
+        backgroundColor: 'rgba(100, 150, 255, 0.5)',
+      };
+    }
+
+    // Legal move indicators
+    legalMoves.forEach((square) => {
+      styles[square] = {
+        ...styles[square],
+        background: styles[square]?.backgroundColor
+          ? `radial-gradient(circle, rgba(0, 0, 0, 0.2) 25%, transparent 25%), ${styles[square].backgroundColor}`
+          : 'radial-gradient(circle, rgba(0, 0, 0, 0.2) 25%, transparent 25%)',
+        backgroundSize: '100% 100%',
+      };
+    });
+
     return styles;
-  }, [highlightSquares, lastMove]);
+  }, [highlightSquares, lastMove, selectedSquare, legalMoves]);
 
   const handlePieceDrop = useCallback(
     ({ sourceSquare, targetSquare, piece }: {
@@ -73,6 +148,10 @@ export function ChessBoard({
       sourceSquare: string;
       targetSquare: string | null
     }): boolean => {
+      // Clear click-to-move selection when dragging
+      setSelectedSquare(null);
+      setLegalMoves([]);
+
       if (!allowMoves || !onMove || !targetSquare) return false;
 
       // Check if it's a pawn promotion
@@ -90,6 +169,7 @@ export function ChessBoard({
     position: fen,
     boardOrientation: orientation,
     onPieceDrop: handlePieceDrop,
+    onSquareClick: handleSquareClick,
     allowDragging: allowMoves,
     boardStyle: {
       borderRadius: '4px',

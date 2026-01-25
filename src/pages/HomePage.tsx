@@ -51,12 +51,9 @@ export function HomePage() {
     <div className="space-y-10">
       {/* Welcome section - Felt Banner Style */}
       <div className="felt-banner stitched stitched-top rounded-xl text-center py-8 -mx-4 sm:-mx-6 lg:-mx-8">
-        <h1 className="text-4xl font-display font-semibold mb-3 text-white text-embossed relative z-10">
+        <h1 className="text-4xl font-display font-semibold text-white text-embossed relative z-10">
           Welcome to Chess Trainer
         </h1>
-        <p className="text-white/80 text-lg relative z-10">
-          Your journey from 200 to 1000 ELO starts here
-        </p>
       </div>
 
       {/* Quick stats */}
