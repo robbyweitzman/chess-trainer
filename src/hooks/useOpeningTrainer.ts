@@ -24,11 +24,6 @@ export function useOpeningTrainer({ opening, mode }: UseOpeningTrainerOptions) {
   const { progress, updateOpeningProgress, updateStreak } = useAppStore();
 
   const playerColor = opening.color;
-  const isPlayerTurn = useMemo(() => {
-    const currentTurn = game.turn();
-    return (playerColor === 'white' && currentTurn === 'w') ||
-           (playerColor === 'black' && currentTurn === 'b');
-  }, [game, playerColor, currentMoveIndex]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const currentMove: OpeningMove | undefined = opening.moves[currentMoveIndex];
   const expectedMove = currentMove?.san;
@@ -39,6 +34,15 @@ export function useOpeningTrainer({ opening, mode }: UseOpeningTrainerOptions) {
     }
     return opening.moves[currentMoveIndex - 1]?.fen || game.fen();
   }, [currentMoveIndex, opening.moves, game]);
+
+  // Whose move it is in the *current* position. Derived from the FEN of the
+  // line so it stays correct for both colors (the trainer plays the player's
+  // color while opponent moves are auto-played by the consumer).
+  const isPlayerTurn = useMemo(() => {
+    const currentTurn = fen.split(' ')[1] === 'b' ? 'b' : 'w';
+    return (playerColor === 'white' && currentTurn === 'w') ||
+           (playerColor === 'black' && currentTurn === 'b');
+  }, [fen, playerColor]);
 
   const makeMove = useCallback(
     (san: string): { correct: boolean; message: string } => {
