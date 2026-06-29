@@ -509,6 +509,8 @@ h1, h2, h3, .font-display {
   );
   border-top: 1px solid var(--wood-dark);
   box-shadow: 0 -2px 8px rgba(0,0,0,0.3);
+  /* Clear the iOS home indicator on notched phones */
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 .tab-bar-item {

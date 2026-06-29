@@ -42,7 +42,8 @@ export function Layout({ children }: LayoutProps) {
             </span>
           </Link>
 
-          <nav className="flex items-center gap-1 flex-1">
+          {/* Desktop nav — hidden on mobile, where the bottom tab bar is used */}
+          <nav className="hidden md:flex items-center gap-1 flex-1">
             {navItems.map((item) => {
               const isActive = location.pathname === item.path;
               return (
@@ -63,6 +64,9 @@ export function Layout({ children }: LayoutProps) {
             })}
           </nav>
 
+          {/* Spacer to keep the theme toggle right-aligned on mobile */}
+          <div className="flex-1 md:hidden" />
+
           <button
             onClick={toggleTheme}
             title={`Current theme: ${theme}`}
@@ -73,8 +77,27 @@ export function Layout({ children }: LayoutProps) {
         </div>
       </header>
 
-      {/* Main content */}
-      <main className="flex-1 container py-8">{children}</main>
+      {/* Main content — extra bottom padding on mobile to clear the tab bar */}
+      <main className="flex-1 container py-8 pb-28 md:pb-8">{children}</main>
+
+      {/* Bottom tab bar — mobile only (reuses skeuomorphic .tab-bar styles) */}
+      <nav className="tab-bar md:hidden fixed bottom-0 inset-x-0 z-50 flex items-stretch justify-around">
+        {navItems.map((item) => {
+          const isActive = location.pathname === item.path;
+          return (
+            <Link
+              key={item.path}
+              to={item.path}
+              aria-label={item.label}
+              aria-current={isActive ? 'page' : undefined}
+              className={cn('tab-bar-item relative flex-1', isActive && 'active')}
+            >
+              <item.icon className={cn('h-5 w-5', isActive && 'icon-glow')} />
+              <span className="text-[0.65rem] mt-0.5 font-medium">{item.label}</span>
+            </Link>
+          );
+        })}
+      </nav>
     </div>
   );
 }

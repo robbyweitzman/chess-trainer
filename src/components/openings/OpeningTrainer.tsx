@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { Chess, type Square } from 'chess.js';
 import {
   ArrowLeft,
@@ -38,13 +38,8 @@ export function OpeningTrainer({ opening }: OpeningTrainerProps) {
           setMessage(result.message);
           setIsCorrect(result.correct);
 
-          // If correct and not player's turn, advance opponent move
-          if (result.correct) {
-            setTimeout(() => {
-              trainer.advanceOpponentMove();
-            }, 500);
-          }
-
+          // Opponent replies are auto-played by the effect below whenever it
+          // becomes the opponent's turn.
           return result.correct;
         }
       } catch {
@@ -54,6 +49,14 @@ export function OpeningTrainer({ opening }: OpeningTrainerProps) {
     },
     [trainer]
   );
+
+  // Auto-play opponent moves: when it's not the player's turn (including the
+  // very first move of a Black opening), advance the line after a short delay.
+  useEffect(() => {
+    if (trainer.isComplete || trainer.isPlayerTurn) return;
+    const timer = setTimeout(() => trainer.advanceOpponentMove(), 500);
+    return () => clearTimeout(timer);
+  }, [trainer.isPlayerTurn, trainer.isComplete, trainer.currentMoveIndex, trainer]);
 
   const handleReset = () => {
     trainer.reset();
